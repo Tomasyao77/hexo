@@ -152,6 +152,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-fastdfs-nginx搭建简单图床" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/09/fastdfs-nginx搭建简单图床/">fastdfs+nginx搭建简单图床</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/09/fastdfs-nginx搭建简单图床/" class="archive-article-date">
+  	<time datetime="2017-07-09T11:42:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装fastdfs相关"><a href="#安装fastdfs相关" class="headerlink" title="安装fastdfs相关"></a>安装fastdfs相关</h2><ol>
+<li>libfastcommon fastdfs通用函数库</li>
+</ol>
+<blockquote>
+<p>git clone <a href="https://github.com/happyfish100/libfastcommon.git" target="_blank" rel="external">https://github.com/happyfish100/libfastcommon.git</a> /targetDir</p>
+</blockquote>
+<ol>
+<li>fastdfs</li>
+</ol>
+<blockquote>
+<p>git clone <a href="https://github.com/happyfish100/fastdfs.git" target="_blank" rel="external">https://github.com/happyfish100/fastdfs.git</a> /targetDir</p>
+</blockquote>
+<p><code>其中，targetDir改成自己的目录，用于存放代码</code></p>
+<ol>
+<li>编译安装libfastcommon和fastdfs</li>
+</ol>
+<blockquote>
+<p>cd /targetDir/libfastcommon<br>./make.sh<br>sudo ./make.sh install<br>cd /targetDir/fastdfs<br>./make.sh<br>sudo ./make.sh install</p>
+</blockquote>
+<ol>
+<li>修改配置文件</li>
+</ol>
+<blockquote>
+<p>cd /targetDir<br>mkdir log</p>
+</blockquote>
+<p><code>当然，这里的targetDir不一定要和第1,2步的targetDir一样</code></p>
+<blockquote>
+<p>cd /etc/fdfs</p>
+</blockquote>
+<p>分别修改tracker.conf.sample storage.conf.sample  client.conf.sample三个文件</p>
+<p>主要就是改日志文件目录，文件存储目录以及tracker服务器地址</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fastdfs</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图床</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-嫦娥web即时通讯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,18 +270,18 @@
 <li>将多个专家对应于一个账号</li>
 <li>新增角色<strong>“嫦娥专家公共号”</strong></li>
 </ul>
-<p><img src="https://thumbnail0.baidupcs.com/thumbnail/76fdc5049c2ed996a2c2c132dc0b409a?fid=456408840-250528-748597386399594&amp;time=1499061600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-F3PWaHqMtaVmLmsF6LtsVULgMjs%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=4258155673620016167&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100&amp;vuk=-&amp;ft=video" alt="space"></p>
+<!-- ![space](http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg) -->
+<p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg" width="80%" alt="图片名称" align="center"></p>
 <h2 id="webim重构"><a href="#webim重构" class="headerlink" title="webim重构"></a>webim重构</h2><ul>
 <li>根据用户id获取相应资料（包括webim资料）能一次获取绝不两次</li>
-<li>数据库新建<strong>两张表</strong><blockquote>
-<p><code>webim_msg_item</code> <code>web_msg_last</code></p>
-</blockquote>
-</li>
-<li>环信发消息与消息处理写成<strong>插件</strong><blockquote>
-<p><code>YaoIm.js</code></p>
-</blockquote>
-</li>
+<li>数据库新建<strong>两张表</strong></li>
 </ul>
+<blockquote>
+<p><code>webim_msg_item</code> <code>web_msg_last</code></p>
+<ul>
+<li>环信发消息与消息处理写成<strong>插件</strong><br><code>YaoIm.js</code></li>
+</ul>
+</blockquote>
 
       
 
@@ -426,6 +519,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">fastdfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">图床</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>

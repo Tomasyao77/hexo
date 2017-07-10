@@ -172,35 +172,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装fastdfs相关"><a href="#安装fastdfs相关" class="headerlink" title="安装fastdfs相关"></a>安装fastdfs相关</h2><ol>
-<li>libfastcommon fastdfs通用函数库</li>
-</ol>
-<blockquote>
-<p>git clone <a href="https://github.com/happyfish100/libfastcommon.git" target="_blank" rel="external">https://github.com/happyfish100/libfastcommon.git</a> /targetDir</p>
-</blockquote>
-<ol>
-<li>fastdfs</li>
-</ol>
-<blockquote>
-<p>git clone <a href="https://github.com/happyfish100/fastdfs.git" target="_blank" rel="external">https://github.com/happyfish100/fastdfs.git</a> /targetDir</p>
-</blockquote>
+        <h2 id="安装fastdfs相关"><a href="#安装fastdfs相关" class="headerlink" title="安装fastdfs相关"></a>安装fastdfs相关</h2><p>1.libfastcommon fastdfs通用函数库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/happyfish100/libfastcommon.git /targetDir</div></pre></td></tr></table></figure>
+<p>2.fastdfs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/happyfish100/fastdfs.git /targetDir</div></pre></td></tr></table></figure>
 <p><code>其中，targetDir改成自己的目录，用于存放代码</code></p>
-<ol>
-<li>编译安装libfastcommon和fastdfs</li>
-</ol>
-<blockquote>
-<p>cd /targetDir/libfastcommon<br>./make.sh<br>sudo ./make.sh install<br>cd /targetDir/fastdfs<br>./make.sh<br>sudo ./make.sh install</p>
-</blockquote>
-<ol>
-<li>修改配置文件</li>
-</ol>
-<blockquote>
-<p>cd /targetDir<br>mkdir log</p>
-</blockquote>
+<p>3.编译安装libfastcommon和fastdfs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd /targetDir/libfastcommon</div><div class="line">./make.sh</div><div class="line">sudo ./make.sh install</div><div class="line">cd /targetDir/fastdfs</div><div class="line">./make.sh</div><div class="line">sudo ./make.sh install</div></pre></td></tr></table></figure>
+<p>4.修改配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /targetDir</div><div class="line">mkdir log</div></pre></td></tr></table></figure>
 <p><code>当然，这里的targetDir不一定要和第1,2步的targetDir一样</code></p>
-<blockquote>
-<p>cd /etc/fdfs</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /etc/fdfs</div></pre></td></tr></table></figure>
 <p>分别修改tracker.conf.sample storage.conf.sample  client.conf.sample三个文件</p>
 <p>主要就是改日志文件目录，文件存储目录以及tracker服务器地址</p>
 

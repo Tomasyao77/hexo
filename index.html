@@ -173,7 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><blockquote>
-<p>apt install net-tools       # ifconfig<br>apt install iputils-ping     # ping</p>
+<p>apt install net-tools       # ifconfig<br>apt install iputils-ping     # ping<br>netstat -ant | grep 4000     #查看端口占用</p>
 </blockquote>
 <h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><blockquote>
 <p>ps aux | grep nginx<br>ps -le | more<br>pstree -pu<br>top<br>kill -l<br>kill -HUP (pid)  #平滑重启<br>kill -1 (pid)  #平滑重启<br>kill -KILL (pid)  #强制杀死进程<br>kill -9 (pid)  #强制杀死进程<br>killall -9 httpd<br>w #当前登录的用户<br>pkill -9 -t tty1 #按照终端号踢出用户</p>
@@ -239,9 +239,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="安装fastdfs相关"><a href="#安装fastdfs相关" class="headerlink" title="安装fastdfs相关"></a>安装fastdfs相关</h2><p><strong>1.libfastcommon fastdfs通用函数库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/happyfish100/libfastcommon.git /home/zouy/download</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/happyfish100/libfastcommon.git /home/zouy/download</div></pre></td></tr></table></figure>
 <p><strong>2.fastdfs</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/happyfish100/fastdfs.git /home/zouy/download</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/happyfish100/fastdfs.git /home/zouy/download</div></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2017/07/09/fastdfs-nginx搭建简单图床/#more">查看全文 >></a>
         
@@ -506,19 +506,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webim</a>
               </li>
             
             <div class="clearfix"></div>

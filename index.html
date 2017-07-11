@@ -178,52 +178,9 @@
 <h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><blockquote>
 <p>ps aux | grep nginx<br>ps -le | more<br>pstree -pu<br>top<br>kill -l<br>kill -HUP (pid)  #平滑重启<br>kill -1 (pid)  #平滑重启<br>kill -KILL (pid)  #强制杀死进程<br>kill -9 (pid)  #强制杀死进程<br>killall -9 httpd<br>w #当前登录的用户<br>pkill -9 -t tty1 #按照终端号踢出用户</p>
 </blockquote>
-<h2 id="工作-后台-管理"><a href="#工作-后台-管理" class="headerlink" title="工作(后台)管理"></a>工作(后台)管理</h2><blockquote>
-<p>jobs -l #显示工作的pid<br>(command) &amp; #放在后台执行<br>ctrl+z #放在后台暂停<br>find / -name tomasyao &amp;<br>/usr/local/mysql/bin/mysqld –user=mysql &amp; #d就是daemon守护进程<br>后台命令脱离登录终端执行：</p>
-<ol>
-<li>/etc/rc.local</li>
-<li>系统定时任务</li>
-<li>nohup</li>
-</ol>
-</blockquote>
-<h2 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a>系统资源查看</h2><blockquote>
-<p>vmstat 1 3 #[刷新延迟，刷新次数]<br>dmesg #内核自启信息<br>dmesg | grep CPU<br>free #内存使用状态<br>cat /proc/cpuinfo<br>uptime<br>uname -a<br>file /bin/ls #判断当前系统的位数<br>lsb_release -a #发行版<br>lsof /sbin/init</p>
-</blockquote>
-<h2 id="系统定时任务"><a href="#系统定时任务" class="headerlink" title="系统定时任务"></a>系统定时任务</h2><blockquote>
-<p>at now +2 minutes<br>atq<br>atrm<br>crontab -e(编辑)<br><strong>*</strong> 执行的任务</p>
-<ol>
-<li><ul>
-<li>一小时当中的第几分钟 0-59</li>
-</ul>
-</li>
-<li><ul>
-<li>一天当中的第几小时 0-23</li>
-</ul>
-</li>
-<li><ul>
-<li>一个月当中的第几天 1-31</li>
-</ul>
-</li>
-<li><ul>
-<li>一年当中的第几月 1-12</li>
-</ul>
-</li>
-<li><ul>
-<li>一周当中的星期几 0-7(0-7都代表星期日)<br>特殊符号</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>任何时间(第一个<em>代表一小时每分钟执行一次)<br>, 不连续时间 0 8,12,16 </em> <em> </em> 命令(每天8点0分，12点0分，16点0分执行)</li>
-</ul>
-<ul>
-<li>连续时间范围 0 5 <em> </em> 1-6 命令(周一到周六的凌晨5点0分执行)<br><em>/n 间隔执行 </em>/10 <em> </em> <em> </em> 命令(每隔10分钟执行)<br>crontab -l<br>crontab -r<br>/etc/crontab</li>
-</ul>
-</blockquote>
-<h2 id="目录文件权限"><a href="#目录文件权限" class="headerlink" title="目录文件权限"></a>目录文件权限</h2><blockquote>
-<p>文件 最高权限 x<br>目录 最高权限 w<br>    0 5(rx) 7(rwx)<br>    4 1 6<br>useradd user1<br>passwd user1<br>chmod<br>chown #修改文件的所有者<br>chgrp #修改文件的所有组<br>groupadd user<br>gpasswd -a user1 user #将user1加到user组<br>chown user1:user dir<br>umask<br>文件默认不能建立为执行文件，必须手工赋予执行权限<br>所以文件默认权限最大为666<br>默认权限需要换算成字母再相减<br>建立文件之后的默认权限，为666减去umask<br>目录默认权限最大为777<br>永久修改<br>vi /etc/profile</p>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2017/07/11/linux常用命令/#more">查看全文 >></a>
+        
       
 
       
@@ -356,17 +313,9 @@
 </ul>
 <!-- ![space](http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg) -->
 <p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg" width="80%" alt="图片名称" align="center"></p>
-<h2 id="webim重构"><a href="#webim重构" class="headerlink" title="webim重构"></a>webim重构</h2><ul>
-<li>根据用户id获取相应资料（包括webim资料）能一次获取绝不两次</li>
-<li>数据库新建<strong>两张表</strong></li>
-</ul>
-<blockquote>
-<p><code>webim_msg_item</code> <code>web_msg_last</code></p>
-<ul>
-<li>环信发消息与消息处理写成<strong>插件</strong><br><code>YaoIm.js</code></li>
-</ul>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2017/07/03/嫦娥web即时通讯/#more">查看全文 >></a>
+        
       
 
       
@@ -417,7 +366,7 @@
 
         
         <a href="/2017/07/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-07-01T08:44:18.560Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
+  	<time datetime="2017-07-01T01:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
 </a>
         
       </header>
@@ -428,12 +377,9 @@
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2017/07/01/hello-world/#more">查看全文 >></a>
+        
       
 
       

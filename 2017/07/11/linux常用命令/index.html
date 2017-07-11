@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java | Tomasyao的空间站</title>
+  <title>linux常用命令 | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="d9lab worker">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tomasyao的空间站">
-<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
+  <meta name="description" content="网络 apt install net-tools       # ifconfigapt install iputils-ping     # ping  进程管理 ps aux | grep nginxps -le | morepstree -putopkill -lkill -HUP (pid)  #平滑重启kill -1 (pid)  #平滑重启kill -KILL (pid)  #强制杀死">
+<meta name="keywords" content="linux,命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令">
+<meta property="og:url" content="http://yoursite.com/2017/07/11/linux常用命令/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="d9lab worker">
+<meta property="og:description" content="网络 apt install net-tools       # ifconfigapt install iputils-ping     # ping  进程管理 ps aux | grep nginxps -le | morepstree -putopkill -lkill -HUP (pid)  #平滑重启kill -1 (pid)  #平滑重启kill -KILL (pid)  #强制杀死">
+<meta property="og:updated_time" content="2017-07-11T08:54:35.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomasyao的空间站">
-<meta name="twitter:description" content="d9lab worker">
+<meta name="twitter:title" content="linux常用命令">
+<meta name="twitter:description" content="网络 apt install net-tools       # ifconfigapt install iputils-ping     # ping  进程管理 ps aux | grep nginxps -le | morepstree -putopkill -lkill -HUP (pid)  #平滑重启kill -1 (pid)  #平滑重启kill -KILL (pid)  #强制杀死">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -150,60 +152,214 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-linux常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/02/my-first-post/" class="archive-article-date">
-  	<time datetime="2017-07-02T01:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/02/my-first-post/">my first post</a>
+    <h1 class="article-title" itemprop="name">
+      linux常用命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/11/linux常用命令/" class="archive-article-date">
+  	<time datetime="2017-07-11T08:48:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><blockquote>
+<p>apt install net-tools       # ifconfig<br>apt install iputils-ping     # ping</p>
+</blockquote>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><blockquote>
+<p>ps aux | grep nginx<br>ps -le | more<br>pstree -pu<br>top<br>kill -l<br>kill -HUP (pid)  #平滑重启<br>kill -1 (pid)  #平滑重启<br>kill -KILL (pid)  #强制杀死进程<br>kill -9 (pid)  #强制杀死进程<br>killall -9 httpd<br>w #当前登录的用户<br>pkill -9 -t tty1 #按照终端号踢出用户</p>
+</blockquote>
+<h2 id="工作-后台-管理"><a href="#工作-后台-管理" class="headerlink" title="工作(后台)管理"></a>工作(后台)管理</h2><blockquote>
+<p>jobs -l #显示工作的pid<br>(command) &amp; #放在后台执行<br>ctrl+z #放在后台暂停<br>find / -name tomasyao &amp;<br>/usr/local/mysql/bin/mysqld –user=mysql &amp; #d就是daemon守护进程<br>后台命令脱离登录终端执行：</p>
+<ol>
+<li>/etc/rc.local</li>
+<li>系统定时任务</li>
+<li>nohup</li>
+</ol>
+</blockquote>
+<h2 id="系统资源查看"><a href="#系统资源查看" class="headerlink" title="系统资源查看"></a>系统资源查看</h2><blockquote>
+<p>vmstat 1 3 #[刷新延迟，刷新次数]<br>dmesg #内核自启信息<br>dmesg | grep CPU<br>free #内存使用状态<br>cat /proc/cpuinfo<br>uptime<br>uname -a<br>file /bin/ls #判断当前系统的位数<br>lsb_release -a #发行版<br>lsof /sbin/init</p>
+</blockquote>
+<h2 id="系统定时任务"><a href="#系统定时任务" class="headerlink" title="系统定时任务"></a>系统定时任务</h2><blockquote>
+<p>at now +2 minutes<br>atq<br>atrm<br>crontab -e(编辑)<br><strong>*</strong> 执行的任务</p>
+<ol>
+<li><ul>
+<li>一小时当中的第几分钟 0-59</li>
+</ul>
+</li>
+<li><ul>
+<li>一天当中的第几小时 0-23</li>
+</ul>
+</li>
+<li><ul>
+<li>一个月当中的第几天 1-31</li>
+</ul>
+</li>
+<li><ul>
+<li>一年当中的第几月 1-12</li>
+</ul>
+</li>
+<li><ul>
+<li>一周当中的星期几 0-7(0-7都代表星期日)<br>特殊符号</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>任何时间(第一个<em>代表一小时每分钟执行一次)<br>, 不连续时间 0 8,12,16 </em> <em> </em> 命令(每天8点0分，12点0分，16点0分执行)</li>
+</ul>
+<ul>
+<li>连续时间范围 0 5 <em> </em> 1-6 命令(周一到周六的凌晨5点0分执行)<br><em>/n 间隔执行 </em>/10 <em> </em> <em> </em> 命令(每隔10分钟执行)<br>crontab -l<br>crontab -r<br>/etc/crontab</li>
+</ul>
+</blockquote>
+<h2 id="目录文件权限"><a href="#目录文件权限" class="headerlink" title="目录文件权限"></a>目录文件权限</h2><blockquote>
+<p>文件 最高权限 x<br>目录 最高权限 w<br>    0 5(rx) 7(rwx)<br>    4 1 6<br>useradd user1<br>passwd user1<br>chmod<br>chown #修改文件的所有者<br>chgrp #修改文件的所有组<br>groupadd user<br>gpasswd -a user1 user #将user1加到user组<br>chown user1:user dir<br>umask<br>文件默认不能建立为执行文件，必须手工赋予执行权限<br>所以文件默认权限最大为666<br>默认权限需要换算成字母再相减<br>建立文件之后的默认权限，为666减去umask<br>目录默认权限最大为777<br>永久修改<br>vi /etc/profile</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFQOAKx4kAACGcxh6HPQ444.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFguAWD9TAACJCEBERyM501.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">命令</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/11/linux常用命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/07/09/fastdfs-nginx搭建简单图床/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">fastdfs+nginx搭建简单图床</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -226,9 +382,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
@@ -307,15 +463,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">webim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
             
             <div class="clearfix"></div>

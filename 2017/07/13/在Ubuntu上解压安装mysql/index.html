@@ -15,10 +15,13 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/13/在Ubuntu上解压安装mysql/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
 <meta property="og:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
-<meta property="og:updated_time" content="2017-07-13T10:07:33.366Z">
+<meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lnX66ARwAsAAE6-d9quc0487.png">
+<meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lnYC6Ab5d-AAE0AulhRR0679.png">
+<meta property="og:updated_time" content="2017-07-13T12:04:14.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Ubuntu上解压安装mysql">
 <meta name="twitter:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
+<meta name="twitter:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lnX66ARwAsAAE6-d9quc0487.png">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -178,7 +181,7 @@
 <blockquote>
 <p> export PATH=$PATH:/home/zouy/Downloads/mysql/mysql-5.7.18/bin</p>
 </blockquote>
-<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><p><strong>1.my.cnf</strong></p>
+<h2 id="中级操作"><a href="#中级操作" class="headerlink" title="中级操作"></a>中级操作</h2><p><strong>1.my.cnf</strong></p>
 <blockquote>
 <p>解压安装自己要配的东西太多了，样例配置文件都没有，还要自己新建。</p>
 </blockquote>
@@ -199,6 +202,18 @@
 <p><strong>3.重启mysql服务</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service mysql.server stop<span class="built_in"></span></div><div class="line">service mysql.server start</div></pre></td></tr></table></figure></p>
 <p><strong>4.验证前述操作</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mysql -u root -p</span></div><div class="line">Enter password: </div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"></span></div></pre></td></tr></table></figure></p>
 <p><code>输入密码772052352后就成功进入了mysql服务器</code></p>
+<p><strong>5.更改密码过期时间</strong></p>
+<blockquote>
+<p>用datagrip或其他数据库管理软件连接本地mysql服务器</p>
+</blockquote>
+<!-- ![mysql](http://119.29.141.240/group1/M00/00/00/Cmh6v1lnX66ARwAsAAE6-d9quc0487.png) -->
+<p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lnX66ARwAsAAE6-d9quc0487.png" width="100%"></p>
+<blockquote>
+<p>在mysql数据库中将user表中root用户的密码过期字段password_expired改为N</p>
+</blockquote>
+<p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lnYC6Ab5d-AAE0AulhRR0679.png" alt="root"></p>
+<h2 id="高级操作"><a href="#高级操作" class="headerlink" title="高级操作"></a>高级操作</h2><p><strong>1.mysqld</strong><br>将之前的mysql.server文件重命名为mysqld，这里暂时先这样做<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mv <span class="regexp">/etc/i</span>nit.d<span class="regexp">/mysql.server /</span>etc<span class="regexp">/init.d/my</span>sqld</div></pre></td></tr></table></figure></p>
+<p>以后启动mysql服务就可以用下面的命令<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysqld <span class="literal">start</span></div></pre></td></tr></table></figure></p>
 
       
 
@@ -451,14 +466,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
@@ -468,6 +475,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webim</a>
               </li>
             
             <div class="clearfix"></div>

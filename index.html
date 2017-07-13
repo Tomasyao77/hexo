@@ -68,7 +68,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -80,12 +80,6 @@
 			<div class="social">
 				
 					<a class="github" target="_blank" href="https://github.com/Tomasyao77" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="http://weibo.com" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="qq" target="_blank" href="/772052352" title="qq"><i class="icon-qq"></i></a>
-		        
-					<a class="mail" target="_blank" href="/772052352@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -122,12 +116,6 @@
 					
 						<a class="github" target="_blank" href="https://github.com/Tomasyao77" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="qq" target="_blank" href="/772052352" title="qq"><i class="icon-qq"></i></a>
-			        
-						<a class="mail" target="_blank" href="/772052352@qq.com" title="mail"><i class="icon-mail"></i></a>
-			        
 				</div>
 			</nav>
 
@@ -151,6 +139,106 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-在Ubuntu上解压安装mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/13/在Ubuntu上解压安装mysql/">在Ubuntu上解压安装mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/13/在Ubuntu上解压安装mysql/" class="archive-article-date">
+  	<time datetime="2017-07-13T07:02:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p><strong>1.从mysql官网下载 <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a></strong></p>
+<blockquote>
+<p>我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件<br>我下载到/home/zouy/Downloads/mysql这个目录下</p>
+</blockquote>
+<p><strong>2.解压并重命名</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/zouy/Downloads/mysql</div><div class="line">tar -zxvf mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64.tar.gz</div><div class="line">mv mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64 mysql<span class="number">-5.7</span><span class="number">.18</span></div></pre></td></tr></table></figure></p>
+<p><strong>3.建立data目录</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> /home/zouy/Downloads/mysql/mysql-<span class="number">5.7</span>.<span class="number">18</span></div><div class="line"><span class="built_in">mkdir</span> mysql-<span class="keyword">files</span></div></pre></td></tr></table></figure></p>
+<p><strong>4.新建用户(按照官网教程)</strong><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo groupadd mysql</div><div class="line">sudo useradd -r -g mysql -s <span class="regexp">/bin/</span><span class="keyword">false</span> mysql</div></pre></td></tr></table></figure></p>
+<p><strong>5.安装mysql</strong><br>需指定basedir和datadir<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo bin<span class="regexp">/mysqld --initialize --user=mysql --basedir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span> --datadir=<span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql<span class="regexp">/mysql-5.7.18/</span>mysql-files</div><div class="line">sudo bin<span class="regexp">/mysql_ssl_rsa_setup --datadir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span>/mysql-files</div></pre></td></tr></table></figure></p>
+<p><strong>6.配置服务</strong><br>文件拷贝操作<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo cp support-files<span class="regexp">/mysql.server /</span>etc<span class="regexp">/init.d/</span>mysql.server</div></pre></td></tr></table></figure></p>
+<p><strong>7.配置环境变量</strong></p>
+<blockquote>
+<p>我用的shell是zsh，配置文件为.zshrc，Ubuntu默认的shell为bash，配置文件为.bashrc<br>编辑器为sublimeText3</p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sudo</span> <span class="keyword">subl </span>~/.zshrc</div></pre></td></tr></table></figure>
+<blockquote>
+<p> export PATH=$PATH:/home/zouy/Downloads/mysql/mysql-5.7.18/bin</p>
+</blockquote>
+<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><p><strong>1.my.cnf</strong></p>
+<blockquote>
+<p>解压安装自己要配的东西太多了，样例配置文件都没有，还要自己新建。</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo subl /etc/<span class="keyword">my</span>.cnf</div></pre></td></tr></table></figure>
+<p><code>上面的代码是新建一个文件，在mysql.server里有说明要自己新建这个my.cnf配置文件</code></p>
+<p><strong>我往这个文件里写入的内容如下，是按照mysql.server里说的来做的</strong></p>
+<blockquote>
+<p>[mysqld]<br>basedir=/home/zouy/Downloads/mysql/mysql-5.7.18<br>datadir=/home/zouy/Downloads/mysql/mysql-5.7.18/mysql-files<br>skip-grant-tables</p>
+</blockquote>
+<p><code>最后一句是启动mysql服务时跳过权限验证</code></p>
+<p>然后启动mysql服务<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysql<span class="selector-class">.server</span> start</div></pre></td></tr></table></figure></p>
+<p><strong>2.配置root用户</strong><br>上一步在启动mysql时跳过了权限验证，这样重启后，我们在shell终端输入mysql直接进入mysql服务器。<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mysql</div><div class="line">mysql&gt;<span class="keyword">UPDATE</span> mysql.<span class="keyword">user</span> <span class="keyword">SET</span> authentication_string=<span class="keyword">PASSWORD</span>(<span class="string">'772052352'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div></pre></td></tr></table></figure></p>
+<p><code>以上是将root用户的密码修改为772052352,其中mysql比较新的版本密码字段变为了authentication_string</code></p>
+<p>然后将之前在/etc/my.cnf文件中的<em>skip-grant-tables</em>这一句注释掉,如下</p>
+<blockquote>
+<p>#skip-grant-tables</p>
+</blockquote>
+<p><strong>3.重启mysql服务</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service mysql.server stop<span class="built_in"></span></div><div class="line">service mysql.server start</div></pre></td></tr></table></figure></p>
+<p><strong>4.验证前述操作</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mysql -u root -p</span></div><div class="line">Enter password: </div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"></span></div></pre></td></tr></table></figure></p>
+<p><code>输入密码772052352后就成功进入了mysql服务器</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解压安装</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -469,7 +557,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -506,11 +594,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,6 +611,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">webim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
             
             <div class="clearfix"></div>
@@ -570,27 +670,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://119.29.141.240:8081/mynavi/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>tomasyao导航</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://119.29.141.240:8081/commonLinks/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>常用前端cdn链接</a>
             </li>
           
         </ul>

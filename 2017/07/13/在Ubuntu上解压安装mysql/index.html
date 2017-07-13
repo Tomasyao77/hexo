@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>fastdfs+nginx搭建简单图床 | Tomasyao的空间站</title>
+  <title>在Ubuntu上解压安装mysql | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装fastdfs相关1.libfastcommon fastdfs通用函数库 1git clone https://github.com/happyfish100/libfastcommon.git /home/zouy/download 2.fastdfs 1git clone https://github.com/happyfish100/fastdfs.git /home/zouy/dow">
-<meta name="keywords" content="fastdfs,nginx,图床">
+  <meta name="description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
+<meta name="keywords" content="ubuntu,mysql,解压安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fastdfs+nginx搭建简单图床">
-<meta property="og:url" content="http://yoursite.com/2017/07/09/fastdfs-nginx搭建简单图床/index.html">
+<meta property="og:title" content="在Ubuntu上解压安装mysql">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/在Ubuntu上解压安装mysql/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="安装fastdfs相关1.libfastcommon fastdfs通用函数库 1git clone https://github.com/happyfish100/libfastcommon.git /home/zouy/download 2.fastdfs 1git clone https://github.com/happyfish100/fastdfs.git /home/zouy/dow">
-<meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg">
-<meta property="og:updated_time" content="2017-07-11T10:47:24.653Z">
+<meta property="og:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
+<meta property="og:updated_time" content="2017-07-13T10:05:58.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fastdfs+nginx搭建简单图床">
-<meta name="twitter:description" content="安装fastdfs相关1.libfastcommon fastdfs通用函数库 1git clone https://github.com/happyfish100/libfastcommon.git /home/zouy/download 2.fastdfs 1git clone https://github.com/happyfish100/fastdfs.git /home/zouy/dow">
-<meta name="twitter:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg">
+<meta name="twitter:title" content="在Ubuntu上解压安装mysql">
+<meta name="twitter:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -142,102 +140,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-fastdfs-nginx搭建简单图床" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-在Ubuntu上解压安装mysql" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      fastdfs+nginx搭建简单图床
+      在Ubuntu上解压安装mysql
     </h1>
   
 
         
-        <a href="/2017/07/09/fastdfs-nginx搭建简单图床/" class="archive-article-date">
-  	<time datetime="2017-07-09T11:42:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
+        <a href="/2017/07/13/在Ubuntu上解压安装mysql/" class="archive-article-date">
+  	<time datetime="2017-07-13T07:02:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装fastdfs相关"><a href="#安装fastdfs相关" class="headerlink" title="安装fastdfs相关"></a>安装fastdfs相关</h2><p><strong>1.libfastcommon fastdfs通用函数库</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/happyfish100/libfastcommon.git /home/zouy/download</div></pre></td></tr></table></figure>
-<p><strong>2.fastdfs</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/happyfish100/fastdfs.git /home/zouy/download</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p><code>其中，/home/zouy/download改成自己的目录，用于存放下载的文件</code></p>
-<p><strong>3.编译安装libfastcommon和fastdfs</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/zouy/download/libfastcommon</div><div class="line">./make.sh</div><div class="line">sudo ./make.sh install</div><div class="line"><span class="built_in">cd</span> /home/zouy/download/fastdfs</div><div class="line">./make.sh</div><div class="line">sudo ./make.sh install</div></pre></td></tr></table></figure>
-<p><strong>4.建立日志目录 和 用于存放文件的目录</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/zouy</div><div class="line">mkdir <span class="built_in">log</span></div><div class="line">mkdir fileSave</div></pre></td></tr></table></figure>
-<p><code>/home/zouy改成自己的目录</code></p>
-<p><strong>6.修改配置文件</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/fdfs</div></pre></td></tr></table></figure>
-<p>分别修改<em>tracker.conf.sample</em> <em>storage.conf.sample</em> <em>client.conf.sample</em>三个文件</p>
-<p>主要就是改日志文件目录，文件存储目录以及tracker服务器地址</p>
-<ul>
-<li>vi tracker.conf.sample</li>
-</ul>
+        <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p><strong>1.从mysql官网下载 <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="external">https://dev.mysql.com/downloads/mysql/</a></strong></p>
 <blockquote>
-<p>base_path=/home/zouy/log</p>
+<p>我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件<br>我下载到/home/zouy/Downloads/mysql这个目录下</p>
 </blockquote>
-<ul>
-<li>vi storage.conf.sample</li>
-</ul>
+<p><strong>2.解压并重命名</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/zouy/Downloads/mysql</div><div class="line">tar -zxvf mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64.tar.gz</div><div class="line">mv mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64 mysql<span class="number">-5.7</span><span class="number">.18</span></div></pre></td></tr></table></figure></p>
+<p><strong>3.建立data目录</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> /home/zouy/Downloads/mysql/mysql-<span class="number">5.7</span>.<span class="number">18</span></div><div class="line"><span class="built_in">mkdir</span> mysql-<span class="keyword">files</span></div></pre></td></tr></table></figure></p>
+<p><strong>4.新建用户(按照官网教程)</strong><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo groupadd mysql</div><div class="line">sudo useradd -r -g mysql -s <span class="regexp">/bin/</span><span class="keyword">false</span> mysql</div></pre></td></tr></table></figure></p>
+<p><strong>5.安装mysql</strong><br>需指定basedir和datadir<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo bin<span class="regexp">/mysqld --initialize --user=mysql --basedir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span> --datadir=<span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql<span class="regexp">/mysql-5.7.18/</span>mysql-files</div><div class="line">sudo bin<span class="regexp">/mysql_ssl_rsa_setup --datadir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span>/mysql-files</div></pre></td></tr></table></figure></p>
+<p><strong>6.配置服务</strong><br>文件拷贝操作<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo cp support-files<span class="regexp">/mysql.server /</span>etc<span class="regexp">/init.d/</span>mysql.server</div></pre></td></tr></table></figure></p>
+<p><strong>7.配置环境变量</strong></p>
 <blockquote>
-<p>base_path=/home/zouy/log<br>store_path0=/home/zouy/fileSave<br>tracker_server=yourServerIp:22122</p>
+<p>我用的shell是zsh，配置文件为.zshrc，Ubuntu默认的shell为bash，配置文件为.bashrc<br>编辑器为sublimeText3</p>
 </blockquote>
-<p><code>yourServerIp改成自己服务器的ip地址</code></p>
-<ul>
-<li>vi client.conf.sample</li>
-</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sudo</span> <span class="keyword">subl </span>~/.zshrc</div></pre></td></tr></table></figure>
 <blockquote>
-<p>base_path=/home/zouy/log</p>
+<p> export PATH=$PATH:/home/zouy/Downloads/mysql/mysql-5.7.18/bin</p>
 </blockquote>
-<p><strong>这里先不启动fastdfs服务，先把nginx配好</strong></p>
-<h2 id="安装nginx相关"><a href="#安装nginx相关" class="headerlink" title="安装nginx相关"></a>安装nginx相关</h2><p><strong>1.下载nginx 和 fastdfs-nginx-module安装包</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/zouy/download</div><div class="line">wget https://github.com/happyfish100/fastdfs-nginx-module/archive/master.zip</div><div class="line">unzip master</div><div class="line">wget http://nginx.org/download/nginx-1.9.5.tar.gz</div><div class="line">tar -zxvf nginx-1.9.5.tar.gz</div></pre></td></tr></table></figure>
-<p><code>其中，/home/zouy/download改成自己的目录，用于存放下载的文件</code><br><code>我下载下来的fastdfs-nginx-module文件名是master</code></p>
-<p><strong>2.安装nginx 和 fastdfs-nginx-module模块</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mv nginx-1.9.5 /usr/<span class="built_in">local</span>/</div><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx-1.9.5</div><div class="line">./configure --add-module=/home/zouy/download/fastdfs-nginx-module-master/src/  --prefix=/usr/<span class="built_in">local</span>/nginx --user=nobody --group=nobody  --with-http_gzip_static_module --with-http_gunzip_module</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<p><code>待会配置nginx的时候需要用到fastdfs-nginx-module模块</code></p>
-<p><strong>3.修改fastdfs-nginx-module里的mod_fastdfs.conf文件</strong></p>
-<ul>
-<li>vi /home/zouy/download/fastdfs-nginx-module-master/src/mod_fastdfs.conf</li>
-</ul>
+<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><p><strong>1.my.cnf</strong></p>
 <blockquote>
-<p>base_path=/home/zouy/log<br>tracker_server=yourServerIp:22122<br>store_path0=/home/zouy/fileSave<br>url_have_group_name = true</p>
+<p>解压安装自己要配的东西太多了，样例配置文件都没有，还要自己新建。</p>
 </blockquote>
-<p><code>/home/zouy/改成自己的目录，yourServerIp改成自己服务器的ip地址</code></p>
-<p><strong>4.将mod_fastdfs.conf http.conf mime.types复制到/etc/fastdfs下</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cp /home/zouy/download/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fastdfs</div><div class="line">cp /home/zouy/download/fastdfs/http.conf /etc/fastdfs</div><div class="line">cp /home/zouy/download/fastdfs/mime.types /etc/fastdfs</div></pre></td></tr></table></figure>
-<p><strong>5.修改nginx配置文件</strong></p>
-<ul>
-<li>vi /usr/local/nginx/conf/nginx.conf</li>
-</ul>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo subl /etc/<span class="keyword">my</span>.cnf</div></pre></td></tr></table></figure>
+<p><code>上面的代码是新建一个文件，在mysql.server里有说明要自己新建这个my.cnf配置文件</code></p>
+<p><strong>我往这个文件里写入的内容如下，是按照mysql.server里说的来做的</strong></p>
 <blockquote>
-<p>location /group1/M00 {<br>        root /home/zouy/fileSave;<br>        ngx_fastdfs_module;<br>}</p>
+<p>[mysqld]<br>basedir=/home/zouy/Downloads/mysql/mysql-5.7.18<br>datadir=/home/zouy/Downloads/mysql/mysql-5.7.18/mysql-files<br>skip-grant-tables</p>
 </blockquote>
-<h2 id="启动fastdfs和nginx"><a href="#启动fastdfs和nginx" class="headerlink" title="启动fastdfs和nginx"></a>启动fastdfs和nginx</h2><p><strong>1.启动fastdfs分发和存储服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf</div><div class="line">/usr/bin/fdfs_storaged /etc/fdfs/storage.conf</div></pre></td></tr></table></figure>
-<p><strong>2.启动nginx</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/nginx/sbin/nginx</div></pre></td></tr></table></figure>
-<p><strong>3.查看服务是否启动</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ps -ef | grep fdfs</div><div class="line">ps -ef | grep nginx</div></pre></td></tr></table></figure>
-<h2 id="测试图床是否搭建成功"><a href="#测试图床是否搭建成功" class="headerlink" title="测试图床是否搭建成功"></a>测试图床是否搭建成功</h2><ul>
-<li>上传图片</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fdfs_test /etc/fdfs/client.conf upload /home/fe/test.jpg</div></pre></td></tr></table></figure>
-<ul>
-<li>在浏览器查看图片图片</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://119.29.141.240/group1/M00/00/00/Cmh6v1lhj0KAPwzOABFdL646mtk074.jpg</div></pre></td></tr></table></figure>
-<ul>
-<li>如下图</li>
-</ul>
-<p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lh9RiASYreABFdL646mtk324.jpg" width="80%" alt="图片名称" align="center"></p>
+<p><code>最后一句是启动mysql服务时跳过权限验证</code></p>
+<p>然后启动mysql服务<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service mysql<span class="selector-class">.server</span> start</div></pre></td></tr></table></figure></p>
+<p><strong>2.配置root用户</strong><br>上一步在启动mysql时跳过了权限验证，这样重启后，我们在shell终端输入mysql直接进入mysql服务器。<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mysql</div><div class="line">mysql&gt;<span class="keyword">UPDATE</span> mysql.<span class="keyword">user</span> <span class="keyword">SET</span> authentication_string=<span class="keyword">PASSWORD</span>(<span class="string">'772052352'</span>) <span class="keyword">WHERE</span> <span class="keyword">User</span>=<span class="string">'root'</span>;</div></pre></td></tr></table></figure></p>
+<p><code>以上是将root用户的密码修改为772052352,其中mysql比较新的版本密码字段变为了authentication_string</code></p>
+<p>然后将之前在/etc/my.cnf文件中的<em>skip-grant-tables</em>这一句注释掉,如下</p>
+<blockquote>
+<p>#skip-grant-tables</p>
+</blockquote>
+<p><strong>3.重启mysql服务</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service mysql.server stop<span class="built_in"></span></div><div class="line">service mysql.server start</div></pre></td></tr></table></figure></p>
+<p><strong>4.验证前述操作</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> mysql -u root -p</span></div><div class="line">Enter password: </div><div class="line"><span class="meta">mysql&gt;</span><span class="bash"></span></div></pre></td></tr></table></figure></p>
+<p><code>输入密码772052352后就成功进入了mysql服务器</code></p>
 
       
 
@@ -282,15 +242,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fastdfs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图床</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解压安装</a>
         		</li>
       		
 		</ul>
@@ -346,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/09/fastdfs-nginx搭建简单图床/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/13/在Ubuntu上解压安装mysql/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -360,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/11/linux常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux常用命令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/07/03/嫦娥web即时通讯/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">嫦娥web即时通讯</div>
+    <a href="/2017/07/11/linux常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux常用命令</div>
       <i class="icon-circle-right"></i>
     </a>
   

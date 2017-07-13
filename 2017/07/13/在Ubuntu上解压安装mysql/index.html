@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/13/在Ubuntu上解压安装mysql/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
 <meta property="og:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
-<meta property="og:updated_time" content="2017-07-13T10:05:58.950Z">
+<meta property="og:updated_time" content="2017-07-13T10:07:33.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Ubuntu上解压安装mysql">
 <meta name="twitter:description" content="基本操作1.从mysql官网下载 https://dev.mysql.com/downloads/mysql/  我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件我下载到/home/zouy/Downloads">
@@ -165,6 +165,7 @@
 <p>我是Ubuntu14.04 64位的系统，选择linux-generic linux-generic(glibc 2.5)(x86,64-bit)版本的mysql-5.7.18-linux-glibc2.5-x86_64.tar.gz文件<br>我下载到/home/zouy/Downloads/mysql这个目录下</p>
 </blockquote>
 <p><strong>2.解压并重命名</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/zouy/Downloads/mysql</div><div class="line">tar -zxvf mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64.tar.gz</div><div class="line">mv mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64 mysql<span class="number">-5.7</span><span class="number">.18</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p><strong>3.建立data目录</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> /home/zouy/Downloads/mysql/mysql-<span class="number">5.7</span>.<span class="number">18</span></div><div class="line"><span class="built_in">mkdir</span> mysql-<span class="keyword">files</span></div></pre></td></tr></table></figure></p>
 <p><strong>4.新建用户(按照官网教程)</strong><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo groupadd mysql</div><div class="line">sudo useradd -r -g mysql -s <span class="regexp">/bin/</span><span class="keyword">false</span> mysql</div></pre></td></tr></table></figure></p>
 <p><strong>5.安装mysql</strong><br>需指定basedir和datadir<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo bin<span class="regexp">/mysqld --initialize --user=mysql --basedir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span> --datadir=<span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql<span class="regexp">/mysql-5.7.18/</span>mysql-files</div><div class="line">sudo bin<span class="regexp">/mysql_ssl_rsa_setup --datadir=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span>/mysql-files</div></pre></td></tr></table></figure></p>
@@ -442,15 +443,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +459,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
               </li>
             
             <div class="clearfix"></div>

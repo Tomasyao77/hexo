@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Tomasyao的空间站</title>
+  <title>mysql数据库主从同步(一) | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="安装第二个mysql1.主库my.cnf配置  在上一篇文章中已经安装了一个mysql作为主库，要想顺利安装另一个mysql作为从库可不是那么容易。主库的有些配置需要先做相应修改。  /etc/init.d/mysqld启动脚本读取my.cnf配置文件有先后顺序，最先读到的是/etc/my.cnf,但是用到的却是最后读到的。单个数据库都好说，数据库多了为了方便管理我们不把my.cnf放在/etc/">
+<meta name="keywords" content="mysql,主从同步">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/07/01/hello-world/index.html">
+<meta property="og:title" content="mysql数据库主从同步(一)">
+<meta property="og:url" content="http://yoursite.com/2017/07/15/mysql数据库主从同步-一/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-07-11T08:59:21.012Z">
+<meta property="og:description" content="安装第二个mysql1.主库my.cnf配置  在上一篇文章中已经安装了一个mysql作为主库，要想顺利安装另一个mysql作为从库可不是那么容易。主库的有些配置需要先做相应修改。  /etc/init.d/mysqld启动脚本读取my.cnf配置文件有先后顺序，最先读到的是/etc/my.cnf,但是用到的却是最后读到的。单个数据库都好说，数据库多了为了方便管理我们不把my.cnf放在/etc/">
+<meta property="og:updated_time" content="2017-07-15T11:54:54.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="mysql数据库主从同步(一)">
+<meta name="twitter:description" content="安装第二个mysql1.主库my.cnf配置  在上一篇文章中已经安装了一个mysql作为主库，要想顺利安装另一个mysql作为从库可不是那么容易。主库的有些配置需要先做相应修改。  /etc/init.d/mysqld启动脚本读取my.cnf配置文件有先后顺序，最先读到的是/etc/my.cnf,但是用到的却是最后读到的。单个数据库都好说，数据库多了为了方便管理我们不把my.cnf放在/etc/">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -139,36 +140,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql数据库主从同步-一" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      mysql数据库主从同步(一)
     </h1>
   
 
         
-        <a href="/2017/07/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-07-01T01:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
+        <a href="/2017/07/15/mysql数据库主从同步-一/" class="archive-article-date">
+  	<time datetime="2017-07-15T11:08:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+        <h2 id="安装第二个mysql"><a href="#安装第二个mysql" class="headerlink" title="安装第二个mysql"></a>安装第二个mysql</h2><p><strong>1.主库my.cnf配置</strong></p>
+<blockquote>
+<p>在上一篇文章中已经安装了一个mysql作为主库，要想顺利安装另一个mysql作为从库可不是那么容易。主库的有些配置需要先做相应修改。</p>
+</blockquote>
+<p>/etc/init.d/mysqld启动脚本读取my.cnf配置文件有先后顺序，最先读到的是/etc/my.cnf,但是用到的却是最后读到的。单个数据库都好说，数据库多了为了方便管理我们不把my.cnf放在/etc/目录下，而是放在$basedir/目录下，也就是数据库解压安装生成的目录下。</p>
+<p><strong>于是:</strong><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp <span class="meta-keyword">/etc/</span>my.cnf <span class="meta-keyword">/home/</span>zouy/Downloads<span class="meta-keyword">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span></div><div class="line">sudo rm <span class="meta-keyword">/etc/</span>my.cnf</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>然后对my.cnf的内容做一下补充</p>
+<blockquote>
+<p>[client]<br>port = 3306<br>default-character-set = utf8<br>[mysqld]<br>port = 3306<br>basedir = /home/zouy/Downloads/mysql/mysql-5.7.18<br>datadir = /home/zouy/Downloads/mysql/mysql-5.7.18/mysql-files<br>socket = /home/zouy/Downloads/mysql/mysql-5.7.18/mysql.sock</p>
+<p>#跳过权限验证</p>
+<p>#skip-grant-tables<br>[mysqld]<br>max_connections = 1000<br>max_connect_errors = 1000<br>sort_buffer_size = 16M<br>query_cache_size = 64M<br>query_cache_limit = 4M</p>
+<p>#default-storage-engine=INNODB<br>[mysqldump]<br>max_allowed_packet = 32M</p>
+</blockquote>
+<p><code>实际的my.cnf配置项有很多，以后再具体分析</code></p>
+<p><strong>2.主库mysqld服务配置</strong><br>这里只是将上一篇没有说到的列出来</p>
+<blockquote>
+<p>basedir=/home/zouy/Downloads/mysql/mysql-5.7.18<br>datadir=/home/zouy/Downloads/mysql/mysql-5.7.18/mysql-files</p>
+<p>#这里先这样改，好像暂时没什么用,默认是/var/lock/subsys会出奇怪的问题。<br>lockdir=’/home/zouy/Downloads/mysql/mysql-5.7.18/var/lock/subsys’</p>
+</blockquote>
+<p><strong>3.从库解压安装</strong><br>基本与主库解压安装类似，对上篇文章的安装细微优化后，这里我简单列出安装命令<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd /home/zouy/Downloads/mysql</div><div class="line">#上一篇已经重命名过所以不用担心解压有问题</div><div class="line">tar -zxvf mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64.tar.gz</div><div class="line">mv mysql<span class="number">-5.7</span><span class="number">.18</span>-linux-glibc2<span class="number">.5</span>-x86_64 mysql<span class="number">-5.7</span><span class="number">.18</span>-slave </div><div class="line">cd /home/zouy/Downloads/mysql/mysql<span class="number">-5.7</span><span class="number">.18</span>-slave </div><div class="line">mkdir mysql-files</div><div class="line"></div><div class="line">#zouy为我的Ubuntu系统的登录用户</div><div class="line">sudo bin/mysqld --initialize --user=zouy --basedir=/home/zouy/Downloads/mysql/mysql<span class="number">-5.7</span><span class="number">.18</span>-slave --datadir=/home/zouy/Downloads/mysql/mysql<span class="number">-5.7</span><span class="number">.18</span>-slave/mysql-files</div><div class="line"></div><div class="line">sudo cp support-files/mysql.server /etc/init.d/mysqld-slave</div></pre></td></tr></table></figure></p>
+<p><code>环境变量就不用配了,之前为mysql配过也建议取消掉</code></p>
+<p><strong>4.从库my.cnf配置</strong><br>从主库里考一份然后改一下相关变量即可</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/my</span>sql<span class="regexp">/mysql-5.7.18-slave/my</span>.cnf  <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/my</span>sql<span class="regexp">/mysql-5.7.18-slave</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>[client]<br>port = 3306<br>default-character-set = utf8<br>[mysqld]<br>port = 3306<br>basedir = /home/zouy/Downloads/mysql/mysql-5.7.18-slave<br>datadir = /home/zouy/Downloads/mysql/mysql-5.7.18-slave/mysql-files<br>socket = /home/zouy/Downloads/mysql/mysql-5.7.18-slave/mysql.sock</p>
+<p>#跳过权限验证</p>
+<p>#skip-grant-tables<br>[mysqld]<br>max_connections = 1000<br>max_connect_errors = 1000<br>sort_buffer_size = 16M<br>query_cache_size = 64M<br>query_cache_limit = 4M</p>
+<p>#default-storage-engine=INNODB<br>[mysqldump]<br>max_allowed_packet = 32M</p>
+</blockquote>
+<p><strong>5.从库mysqld-slave服务配置</strong><br>从主库里考一份然后改一下相关变量即可</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp <span class="regexp">/etc/i</span>nit.d<span class="regexp">/mysqld /</span>etc<span class="regexp">/init.d/my</span>sqld-slave</div></pre></td></tr></table></figure>
+<blockquote>
+<p>basedir=/home/zouy/Downloads/mysql/mysql-5.7.18-slave<br>datadir=/home/zouy/Downloads/mysql/mysql-5.7.18-slave/mysql-files</p>
+<p>#这里先这样改，好像暂时没什么用,默认是/var/lock/subsys会出奇怪的问题。<br>lockdir=’/home/zouy/Downloads/mysql/mysql-5.7.18-slave/var/lock/subsys’</p>
+</blockquote>
+<p><strong>6.从库账户配置</strong><br>这里只说明本地通过$basedir/bin/mysql登录数据库服务器需要指定–socket参数，其余对账户的权限分配以及配置远程登录请参照上一篇文章。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>zouy<span class="regexp">/Downloads/</span>mysql/mysql<span class="number">-5.7</span><span class="number">.18</span>-slave</div><div class="line">bin<span class="regexp">/mysql --socket=/</span>home<span class="regexp">/zouy/</span>Downloads<span class="regexp">/mysql/</span>mysql<span class="number">-5.7</span><span class="number">.18</span>-slave/mysql.sock -u root -p</div><div class="line">......</div></pre></td></tr></table></figure>
+<p><code>注意，依然先跳过访问控制，改变root账户的密码以及过期时间后，重新通过密码登录mysql服务器。</code></p>
+<p><strong>7.小结</strong></p>
+<blockquote>
+<p>以后通过如下命令来管理主从数据库<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service mysqld [start|stop|restart|status]<span class="built_in"></span></div><div class="line">service mysqld-slave [start|stop|restart|status]</div></pre></td></tr></table></figure></p>
+</blockquote>
 
       
 
@@ -208,6 +242,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主从同步</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -258,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/01/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/15/mysql数据库主从同步-一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,15 +321,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/07/03/嫦娥web即时通讯/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          嫦娥web即时通讯
-        
-      </div>
-    </a>
   
+    <a href="/2017/07/13/在Ubuntu上解压安装mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在Ubuntu上解压安装mysql</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

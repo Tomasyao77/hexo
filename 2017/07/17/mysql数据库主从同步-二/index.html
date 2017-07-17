@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: fastdfs | Tomasyao的空间站</title>
+  <title>mysql数据库主从同步(二) | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="d9lab worker">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tomasyao的空间站">
-<meta property="og:url" content="http://yoursite.com/tags/fastdfs/index.html">
+  <meta name="description" content="配置主库1.my.cnf  修改主库my.cnf配置文件  12345678910111213[client]port = 3306default-character-set = utf8[mysqld]port = 3306basedir = /home/zouy/Downloads/mysql/mysql-5.7.18datadir = /home/zouy/Downloads/mysql/m">
+<meta name="keywords" content="mysql,主从同步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql数据库主从同步(二)">
+<meta property="og:url" content="http://yoursite.com/2017/07/17/mysql数据库主从同步-二/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="d9lab worker">
+<meta property="og:description" content="配置主库1.my.cnf  修改主库my.cnf配置文件  12345678910111213[client]port = 3306default-character-set = utf8[mysqld]port = 3306basedir = /home/zouy/Downloads/mysql/mysql-5.7.18datadir = /home/zouy/Downloads/mysql/m">
+<meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lspAuAN4qEAACwaD7ANJU973.png">
+<meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lsqQ6AYsOJAAF9Oqj1mgI877.png">
+<meta property="og:updated_time" content="2017-07-17T12:15:29.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomasyao的空间站">
-<meta name="twitter:description" content="d9lab worker">
+<meta name="twitter:title" content="mysql数据库主从同步(二)">
+<meta name="twitter:description" content="配置主库1.my.cnf  修改主库my.cnf配置文件  12345678910111213[client]port = 3306default-character-set = utf8[mysqld]port = 3306basedir = /home/zouy/Downloads/mysql/mysql-5.7.18datadir = /home/zouy/Downloads/mysql/m">
+<meta name="twitter:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lspAuAN4qEAACwaD7ANJU973.png">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -138,68 +143,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql数据库主从同步-二" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/09/fastdfs-nginx搭建简单图床/" class="archive-article-date">
-  	<time datetime="2017-07-09T11:42:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/09/fastdfs-nginx搭建简单图床/">fastdfs+nginx搭建简单图床</a>
+    <h1 class="article-title" itemprop="name">
+      mysql数据库主从同步(二)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/17/mysql数据库主从同步-二/" class="archive-article-date">
+  	<time datetime="2017-07-17T11:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置主库"><a href="#配置主库" class="headerlink" title="配置主库"></a>配置主库</h2><p><strong>1.my.cnf</strong></p>
+<blockquote>
+<p>修改主库my.cnf配置文件</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[client]<span class="built_in"></span></div><div class="line">port = 3306</div><div class="line">default-character-<span class="builtin-name">set</span> = utf8</div><div class="line">[mysqld]<span class="built_in"></span></div><div class="line">port = 3306</div><div class="line">basedir = /home/zouy/Downloads/mysql/mysql-5.7.18</div><div class="line">datadir = /home/zouy/Downloads/mysql/mysql-5.7.18/mysql-files</div><div class="line">socket = /home/zouy/Downloads/mysql/mysql-5.7.18/mysql.sock</div><div class="line"><span class="comment">#主从同步 主数据库</span></div><div class="line"><span class="attribute">server-id</span>=1   #必须。设置服务器id，为1表示主服务器。规范为服务器IP的后段</div><div class="line"><span class="attribute">log_bin</span>=mysql-bin  #必须。启动MySQ二进制日志系统。</div><div class="line"><span class="attribute">binlog-do-db</span>=test  #需要同步的数据库名，如果有多个数据库，可重复此参数，每个数据库一行。</div><div class="line"><span class="attribute">binlog-ignore-db</span>=mysql   #不同步mysql系统数据库。</div></pre></td></tr></table></figure>
+<p><code>test为数据库名</code></p>
+<p><strong>2.主库同步点</strong><br><a id="more"></a></p>
+<blockquote>
+<p>重启主库后，本地使用mysql客户端通过socket文件连接到主库</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$<span class="built_in"> service </span>mysqld restart</div><div class="line">$ cd /home/zouy/Downloads/mysql/mysql-5.7.18</div><div class="line">$ bin/mysql <span class="attribute">--socket</span>=/home/zouy/Downloads/mysql/mysql-5.7.18/mysql.sock -u admin -p</div><div class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>(输入密码后进入mysql)</div><div class="line">mysql&gt;show master status;</div></pre></td></tr></table></figure>
+<p><code>admin为我自己建立的一个用户，改成自己的</code></p>
+<p>可以看到主库的相关信息：<br><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lspAuAN4qEAACwaD7ANJU973.png" alt="master"></p>
+<p><strong>3.在主库中为从库建立有权复进行制的用户</strong><br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt;grant replication slave <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'slave'</span>@<span class="string">'%'</span> identified <span class="keyword">by</span> <span class="string">'slave'</span></div></pre></td></tr></table></figure></p>
+<h2 id="配置从库"><a href="#配置从库" class="headerlink" title="配置从库"></a>配置从库</h2><p><strong>1.my.cnf</strong></p>
+<blockquote>
+<p>修改从库my.cnf配置文件</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">[client]<span class="built_in"></span></div><div class="line">port = 3307</div><div class="line">default-character-<span class="builtin-name">set</span> = utf8</div><div class="line">[mysqld]<span class="built_in"></span></div><div class="line">port = 3307</div><div class="line">basedir = /home/zouy/Downloads/mysql/mysql-5.7.18-slave</div><div class="line">datadir = /home/zouy/Downloads/mysql/mysql-5.7.18-slave/mysql-files</div><div class="line">socket = /home/zouy/Downloads/mysql/mysql-5.7.18-slave/mysql.sock</div><div class="line"><span class="comment">#主从同步 从数据库</span></div><div class="line"><span class="attribute">server-id</span>=2   #必须。设置服务器id，为2表示从服务器。规范为服务器IP的后段</div><div class="line"><span class="comment">#log_bin=mysql-bin  #不必须。启动MySQ二进制日志系统。</span></div><div class="line"><span class="attribute">binlog-do-db</span>=test  #需要同步的数据库名，如果有多个数据库，可重复此参数，每个数据库一行。</div><div class="line"><span class="attribute">binlog-ignore-db</span>=mysql   #不同步mysql系统数据库。</div><div class="line">relay_log         = mysql-relay-bin</div><div class="line">log_slave_updates = 1</div><div class="line">read_only         = 1</div></pre></td></tr></table></figure>
+<p><code>test为数据库名</code></p>
+<p><strong>2.重启从库</strong></p>
+<blockquote>
+<p>重启从库后，本地使用mysql客户端通过socket文件连接到主库</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$<span class="built_in"> service </span>mysqld-salve restart</div><div class="line">$ cd /home/zouy/Downloads/mysql/mysql-5.7.18-salve</div><div class="line">$ bin/mysql <span class="attribute">--socket</span>=/home/zouy/Downloads/mysql/mysql-5.7.18-salve/mysql.sock -u admin -p</div><div class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>(输入密码后进入mysql)</div><div class="line">mysql&gt;show master status;</div></pre></td></tr></table></figure>
+<p><code>admin为我自己建立的一个用户，改成自己的</code></p>
+<p><strong>3.从库启动同步</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt;change master <span class="keyword">to</span> <span class="attribute">master_host</span>=<span class="string">'10.139.9.112'</span>,</div><div class="line">    -&gt;<span class="attribute">master_user</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_password</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_file</span>=<span class="string">'mysql-bin.000002'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_pos</span>=<span class="string">'154'</span>；</div><div class="line">mysql&gt;slave start;</div><div class="line">mysql&gt;show slave status\G;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其中master_log_file和master_log_pos为之前在主库中登录进入mysql后使用show master status命令查出来的结果。</p>
+</blockquote>
+<p>然后可以看到从库的对主库的同步情况</p>
+<p><img src="http://119.29.141.240/group1/M00/00/00/Cmh6v1lsqQ6AYsOJAAF9Oqj1mgI877.png" alt="slave"></p>
+<p><code>可以看到Slave_IO_Running和Slave_SQL_Running都为Yes，表示同步成功。之后在主库中修改test库里的表，可以发现从库也会相应变化。</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFQOAKx4kAACGcxh6HPQ444.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFguAWD9TAACJCEBERyM501.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">fastdfs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图床</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主从同步</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/17/mysql数据库主从同步-二/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/07/15/mysql数据库主从同步-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql数据库主从同步(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -222,9 +355,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",

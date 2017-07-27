@@ -140,6 +140,67 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql存储过程花式查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/27/mysql存储过程花式查询/">mysql存储过程花式查询</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/27/mysql存储过程花式查询/" class="archive-article-date">
+  	<time datetime="2017-07-27T01:11:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="统计时间段查询"><a href="#统计时间段查询" class="headerlink" title="统计时间段查询"></a>统计时间段查询</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> PROC_REPORT_SELECT_COUNT(<span class="keyword">IN</span> parlorId <span class="built_in">INT</span>)#<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line">  <span class="keyword">SELECT</span></div><div class="line">    Today.detectionCount <span class="keyword">as</span> today_detection,Today.viewCount <span class="keyword">as</span> today_view,Today.reviewCount <span class="keyword">as</span> today_reviewCount,Today.customerCount <span class="keyword">as</span> today_customer,</div><div class="line">    SevenDay.detectionCount <span class="keyword">as</span> day7_detection,SevenDay.viewCount <span class="keyword">as</span> day7_view,SevenDay.reviewCount <span class="keyword">as</span> day7_reviewCount,SevenDay.customerCount <span class="keyword">as</span> day7_customer,</div><div class="line">    ThirtyDay.detectionCount <span class="keyword">as</span> day30_detection,ThirtyDay.viewCount <span class="keyword">as</span> day30_view,ThirtyDay.reviewCount <span class="keyword">as</span> day30_reviewCount,ThirtyDay.customerCount <span class="keyword">as</span> day30_customer,</div><div class="line">    SixtyDay.detectionCount <span class="keyword">as</span> day60_detection,SixtyDay.viewCount <span class="keyword">as</span> day60_view,SixtyDay.reviewCount <span class="keyword">as</span> day60_reviewCount,SixtyDay.customerCount <span class="keyword">as</span> day60_customer,</div><div class="line">    AllDay.detectionCount <span class="keyword">as</span> allday_detection,AllDay.viewCount <span class="keyword">as</span> allday_view,AllDay.reviewCount <span class="keyword">as</span> allday_reviewCount,AllDay.customerCount <span class="keyword">as</span> allday_customer</div><div class="line">  <span class="keyword">FROM</span></div><div class="line">  #查询今天的<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> detectionCount,<span class="keyword">sum</span>(<span class="keyword">view</span>) <span class="keyword">as</span> viewCount,<span class="keyword">sum</span>(review) <span class="keyword">as</span> reviewCount,<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> customer_id) <span class="keyword">as</span> customerCount <span class="keyword">FROM</span> detection</div><div class="line">    <span class="keyword">WHERE</span> parlor_id=parlorId <span class="keyword">AND</span> update_time <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">    <span class="keyword">AND</span> create_time&gt;=<span class="keyword">CURRENT_DATE</span>() <span class="keyword">AND</span> create_time&lt;<span class="keyword">DATE_ADD</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>)) <span class="keyword">as</span> Today,</div><div class="line">  #查询最近<span class="number">7</span>天的<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> detectionCount,<span class="keyword">sum</span>(<span class="keyword">view</span>) <span class="keyword">as</span> viewCount,<span class="keyword">sum</span>(review) <span class="keyword">as</span> reviewCount,<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> customer_id) <span class="keyword">as</span> customerCount <span class="keyword">FROM</span> detection</div><div class="line">    <span class="keyword">WHERE</span> parlor_id=parlorId <span class="keyword">AND</span> update_time <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">    <span class="keyword">AND</span> create_time&gt;=<span class="keyword">DATE_SUB</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>) <span class="keyword">AND</span> create_time&lt;<span class="keyword">DATE_ADD</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>)) <span class="keyword">as</span> SevenDay,</div><div class="line">  #查询最近一个月的<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> detectionCount,<span class="keyword">sum</span>(<span class="keyword">view</span>) <span class="keyword">as</span> viewCount,<span class="keyword">sum</span>(review) <span class="keyword">as</span> reviewCount,<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> customer_id) <span class="keyword">as</span> customerCount <span class="keyword">FROM</span> detection</div><div class="line">    <span class="keyword">WHERE</span> parlor_id=parlorId <span class="keyword">AND</span> update_time <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">    <span class="keyword">AND</span> create_time&gt;=<span class="keyword">DATE_SUB</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>) <span class="keyword">AND</span> create_time&lt;<span class="keyword">DATE_ADD</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>)) <span class="keyword">as</span> ThirtyDay,</div><div class="line">  #查询最<span class="number">60</span>天的<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> detectionCount,<span class="keyword">sum</span>(<span class="keyword">view</span>) <span class="keyword">as</span> viewCount,<span class="keyword">sum</span>(review) <span class="keyword">as</span> reviewCount,<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> customer_id) <span class="keyword">as</span> customerCount <span class="keyword">FROM</span> detection</div><div class="line">    <span class="keyword">WHERE</span> parlor_id=parlorId <span class="keyword">AND</span> update_time <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">    <span class="keyword">AND</span> create_time&gt;=<span class="keyword">DATE_SUB</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">60</span> <span class="keyword">DAY</span>) <span class="keyword">AND</span> create_time&lt;<span class="keyword">DATE_ADD</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>)) <span class="keyword">as</span> SixtyDay,</div><div class="line">  #查询累计的<span class="number">0</span>:报告数，<span class="number">1</span>:阅读量，<span class="number">2</span>:点评量，<span class="number">3</span>:顾客数</div><div class="line">  (<span class="keyword">SELECT</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> detectionCount,<span class="keyword">sum</span>(<span class="keyword">view</span>) <span class="keyword">as</span> viewCount,<span class="keyword">sum</span>(review) <span class="keyword">as</span> reviewCount,<span class="keyword">count</span>(<span class="keyword">DISTINCT</span> customer_id) <span class="keyword">as</span> customerCount <span class="keyword">FROM</span> detection</div><div class="line">    <span class="keyword">WHERE</span> parlor_id=parlorId <span class="keyword">AND</span> update_time <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></div><div class="line">    <span class="keyword">AND</span> create_time&lt;<span class="keyword">DATE_ADD</span>(<span class="keyword">CURRENT_DATE</span>(),<span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>)) <span class="keyword">as</span> AllDay;</div><div class="line"><span class="keyword">END</span>;</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/07/27/mysql存储过程花式查询/#more">查看全文 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储过程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-ubuntu14-04扁平化主题flatabulous" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -162,11 +223,9 @@
       
         <h2 id="安装ubuntu-tweak或unity-tweak-tool"><a href="#安装ubuntu-tweak或unity-tweak-tool" class="headerlink" title="安装ubuntu-tweak或unity-tweak-tool"></a>安装ubuntu-tweak或unity-tweak-tool</h2><p><strong>1.ubuntu-tweak</strong><br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:tualatrix/ppa </div><div class="line">sudo apt-get update </div><div class="line">sudo apt-get install ubuntu-tweak</div></pre></td></tr></table></figure></p>
 <p><strong>2.unity-tweak-tool</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="builtin-name">get</span> install unity-tweak-tool</div></pre></td></tr></table></figure></p>
-<p><code>推荐后者</code></p>
-<h2 id="下载flatabulous主题包"><a href="#下载flatabulous主题包" class="headerlink" title="下载flatabulous主题包"></a>下载flatabulous主题包</h2><p><strong>1.命令行安装</strong><br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:noobslab/themes  </div><div class="line">sudo apt-get update  </div><div class="line">sudo apt-get install flatabulous-theme</div></pre></td></tr></table></figure></p>
-<p><strong>2.下载zip包</strong><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/anmoljagetia/Flatabulous/archive/<span class="literal">master</span>.zip</div></pre></td></tr></table></figure></p>
-<p>或网盘：链接: <a href="http://pan.baidu.com/s/1bpD4oEV" target="_blank" rel="external">http://pan.baidu.com/s/1bpD4oEV</a> 密码: 93wz</p>
-<h2 id="安装ultra-flat-icons图标库"><a href="#安装ultra-flat-icons图标库" class="headerlink" title="安装ultra-flat-icons图标库"></a>安装ultra-flat-icons图标库</h2><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:noobslab/icons</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install ultra-flat-icons</div><div class="line"><span class="comment">#或者sudo apt-get install ultra-flat-icons-orange</span></div><div class="line"><span class="comment">#或者sudo apt-get install ultra-flat-icons-green</span></div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/07/19/ubuntu14-04扁平化主题flatabulous/#more">查看全文 >></a>
+        
       
 
       
@@ -406,72 +465,6 @@
 
 
   
-    <article id="post-linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/11/linux常用命令/">linux常用命令</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/11/linux常用命令/" class="archive-article-date">
-  	<time datetime="2017-07-11T08:48:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><blockquote>
-<p>apt install net-tools       # ifconfig<br>apt install iputils-ping     # ping<br>netstat -ant | grep 4000     #查看端口占用</p>
-</blockquote>
-<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><blockquote>
-<p>ps aux | grep nginx<br>ps -le | more<br>pstree -pu<br>top<br>kill -l<br>kill -HUP (pid)  #平滑重启<br>kill -1 (pid)  #平滑重启<br>kill -KILL (pid)  #强制杀死进程<br>kill -9 (pid)  #强制杀死进程<br>killall -9 httpd<br>w #当前登录的用户<br>pkill -9 -t tty1 #按照终端号踢出用户</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/07/11/linux常用命令/#more">查看全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">命令</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -596,6 +589,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu14.04</a>
               </li>
              
@@ -604,19 +601,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">嫦娥</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">webim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
               </li>
             
             <div class="clearfix"></div>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="配置主库1.my.cnf  修改主库my.cnf配置文件  12345678910111213[client]port = 3306default-character-set = utf8[mysqld]port = 3306basedir = /home/zouy/Downloads/mysql/mysql-5.7.18datadir = /home/zouy/Downloads/mysql/m">
 <meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lspAuAN4qEAACwaD7ANJU973.png">
 <meta property="og:image" content="http://119.29.141.240/group1/M00/00/00/Cmh6v1lsqQ6AYsOJAAF9Oqj1mgI877.png">
-<meta property="og:updated_time" content="2017-07-17T12:15:29.665Z">
+<meta property="og:updated_time" content="2017-07-28T03:39:33.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql数据库主从同步(二)">
 <meta name="twitter:description" content="配置主库1.my.cnf  修改主库my.cnf配置文件  12345678910111213[client]port = 3306default-character-set = utf8[mysqld]port = 3306basedir = /home/zouy/Downloads/mysql/mysql-5.7.18datadir = /home/zouy/Downloads/mysql/m">
@@ -189,7 +189,7 @@
 </blockquote>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$<span class="built_in"> service </span>mysqld-salve restart</div><div class="line">$ cd /home/zouy/Downloads/mysql/mysql-5.7.18-salve</div><div class="line">$ bin/mysql <span class="attribute">--socket</span>=/home/zouy/Downloads/mysql/mysql-5.7.18-salve/mysql.sock -u admin -p</div><div class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>(输入密码后进入mysql)</div><div class="line">mysql&gt;show master status;</div></pre></td></tr></table></figure>
 <p><code>admin为我自己建立的一个用户，改成自己的</code></p>
-<p><strong>3.从库启动同步</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt;change master <span class="keyword">to</span> <span class="attribute">master_host</span>=<span class="string">'10.139.9.112'</span>,</div><div class="line">    -&gt;<span class="attribute">master_user</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_password</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_file</span>=<span class="string">'mysql-bin.000002'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_pos</span>=<span class="string">'154'</span>；</div><div class="line">mysql&gt;slave start;</div><div class="line">mysql&gt;show slave status\G;</div></pre></td></tr></table></figure></p>
+<p><strong>3.从库启动同步</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mysql&gt;change master <span class="keyword">to</span> <span class="attribute">master_host</span>=<span class="string">'10.139.9.112'</span>,</div><div class="line">    -&gt;<span class="attribute">master_user</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_password</span>=<span class="string">'slave'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_file</span>=<span class="string">'mysql-bin.000002'</span>,</div><div class="line">    -&gt;<span class="attribute">master_log_pos</span>=154；</div><div class="line">mysql&gt;start slave;</div><div class="line">mysql&gt;show slave status\G;</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>其中master_log_file和master_log_pos为之前在主库中登录进入mysql后使用show master status命令查出来的结果。</p>
 </blockquote>
@@ -461,6 +461,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">存储过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu14.04</a>
               </li>
              
@@ -469,7 +473,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">存储过程</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,14 +486,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">webim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">解压安装</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.tomasyao.info">
-  <title>Tag: mysql | Tomasyao的空间站</title>
+  <title>momentjs日期处理 | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="d9lab worker">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tomasyao的空间站">
-<meta property="og:url" content="http://www.tomasyao.info/tags/mysql/index.html">
+  <meta name="description" content="momentjs简介 大家在前端Javascript开发中会遇到处理日期时间的问题，经常会拿来一大堆处理函数才能完成一个简单的日期时间显示效果。moment.js不依赖任何第三方库，支持字符串、Date、时间戳以及数组等格式，可以像PHP的date()函数一样，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等.  相关链接 中文官网 http://momentjs.cn/  1git c">
+<meta name="keywords" content="momentjs,日期处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="momentjs日期处理">
+<meta property="og:url" content="http://www.tomasyao.info/2017/09/14/momentjs日期处理/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="d9lab worker">
+<meta property="og:description" content="momentjs简介 大家在前端Javascript开发中会遇到处理日期时间的问题，经常会拿来一大堆处理函数才能完成一个简单的日期时间显示效果。moment.js不依赖任何第三方库，支持字符串、Date、时间戳以及数组等格式，可以像PHP的date()函数一样，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等.  相关链接 中文官网 http://momentjs.cn/  1git c">
+<meta property="og:updated_time" content="2017-09-14T02:56:58.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomasyao的空间站">
-<meta name="twitter:description" content="d9lab worker">
+<meta name="twitter:title" content="momentjs日期处理">
+<meta name="twitter:description" content="momentjs简介 大家在前端Javascript开发中会遇到处理日期时间的问题，经常会拿来一大堆处理函数才能完成一个简单的日期时间显示效果。moment.js不依赖任何第三方库，支持字符串、Date、时间戳以及数组等格式，可以像PHP的date()函数一样，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等.  相关链接 中文官网 http://momentjs.cn/  1git c">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -138,194 +140,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-momentjs日期处理" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      momentjs日期处理
+    </h1>
+  
+
+        
+        <a href="/2017/09/14/momentjs日期处理/" class="archive-article-date">
+  	<time datetime="2017-09-14T02:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-14</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="momentjs简介"><a href="#momentjs简介" class="headerlink" title="momentjs简介"></a>momentjs简介</h2><blockquote>
+<p>大家在前端Javascript开发中会遇到处理日期时间的问题，经常会拿来一大堆处理函数才能完成一个简单的日期时间显示效果。moment.js不依赖任何第三方库，支持字符串、Date、时间戳以及数组等格式，可以像PHP的date()函数一样，格式化日期时间，计算相对时间，获取特定时间后的日期时间等等.</p>
+</blockquote>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><blockquote>
+<p>中文官网 <a href="http://momentjs.cn/" target="_blank" rel="external">http://momentjs.cn/</a></p>
+</blockquote>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/moment/moment.git</div></pre></td></tr></table></figure>
+<h2 id="项目常用"><a href="#项目常用" class="headerlink" title="项目常用"></a>项目常用</h2><p><strong>1引入momentjs</strong></p>
+<blockquote>
+<script src="moment.min.js"></script>
+
+
+</blockquote>
+<p><strong>2注意自定义变量不要取名为moment</strong><br><strong>3常用函数</strong><br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#当前日期</span></div><div class="line">var now = <span class="built_in">moment</span>();</div><div class="line">console.<span class="built_in">log</span>(now.<span class="keyword">format</span>(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>));</div><div class="line"><span class="meta">#或 console.log(moment(new Date()).format("YYYY-MM-DD HH:mm:ss"));</span></div><div class="line"><span class="meta">#7天后</span></div><div class="line">console.<span class="built_in">log</span>(now.add(<span class="number">7</span>,<span class="string">"day"</span>).<span class="keyword">format</span>(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>));</div><div class="line"><span class="meta">#7天前</span></div><div class="line">console.<span class="built_in">log</span>(now.subtract(<span class="number">7</span>,<span class="string">"day"</span>).<span class="keyword">format</span>(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>));</div><div class="line"><span class="meta">#传字符串并任意格式化</span></div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">moment</span>().<span class="keyword">format</span>(<span class="string">"YYYY MM DD"</span>));</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">moment</span>().<span class="keyword">format</span>(<span class="string">"YYYY-MM-DD"</span>));</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">moment</span>().<span class="keyword">format</span>(<span class="string">"YYYY/MM/DD"</span>));</div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">moment</span>(<span class="string">"2017-9-14"</span>).<span class="keyword">format</span>(<span class="string">"YYYY,MM,DD"</span>));</div><div class="line"><span class="meta">#传时间戳</span></div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">moment</span>(<span class="number">1318781876406</span>).<span class="keyword">format</span>(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>));</div><div class="line"><span class="meta">#传数组 深拷贝 输出2000,2012</span></div><div class="line">var a = <span class="built_in">moment</span>([<span class="number">2012</span>]);</div><div class="line">var b = <span class="built_in">moment</span>(a);<span class="meta">#传date</span></div><div class="line">a.year(<span class="number">2000</span>);</div><div class="line">console.<span class="built_in">log</span>(a.year()+<span class="string">","</span>+b.year());</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFQOAKx4kAACGcxh6HPQ444.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://119.29.141.240/group1/M00/00/00/Cmh6v1liFguAWD9TAACJCEBERyM501.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/27/mysql存储过程花式查询/" class="archive-article-date">
-  	<time datetime="2017-07-27T01:11:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/27/mysql存储过程花式查询/">mysql存储过程花式查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">momentjs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">存储过程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日期处理</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.tomasyao.info/2017/09/14/momentjs日期处理/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/mysql数据库主从同步-二/" class="archive-article-date">
-  	<time datetime="2017-07-17T11:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/mysql数据库主从同步-二/">mysql数据库主从同步(二)</a>
-    </h1>
+  
+    <a href="/2017/08/25/centos7-3配置java-tomcat-nginx等基础环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos7.3配置java+tomcat+nginx等基础环境</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主从同步</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/15/mysql数据库主从同步-一/" class="archive-article-date">
-  	<time datetime="2017-07-15T11:08:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/15/mysql数据库主从同步-一/">mysql数据库主从同步(一)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">主从同步</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/13/在Ubuntu上解压安装mysql/" class="archive-article-date">
-  	<time datetime="2017-07-13T07:02:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/13/在Ubuntu上解压安装mysql/">在Ubuntu上解压安装mysql</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解压安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -348,9 +333,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",

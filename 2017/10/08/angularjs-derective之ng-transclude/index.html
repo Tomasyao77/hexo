@@ -6,17 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.tomasyao.info">
-  <title>Tag: 解压安装 | Tomasyao的空间站</title>
+  <title>angularjs derective之ng-transclude | Tomasyao的空间站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="d9lab worker">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tomasyao的空间站">
-<meta property="og:url" content="http://www.tomasyao.info/tags/解压安装/index.html">
+  <meta name="description" content="特别感谢https://segmentfault.com/a/1190000004586636深受此篇文章影响,受益匪浅,非常感谢. 1 基础页面框架引入bootstarp jquery angular相关文件">
+<meta name="keywords" content="angularjs,derective">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs derective之ng-transclude">
+<meta property="og:url" content="http://www.tomasyao.info/2017/10/08/angularjs-derective之ng-transclude/index.html">
 <meta property="og:site_name" content="Tomasyao的空间站">
-<meta property="og:description" content="d9lab worker">
+<meta property="og:description" content="特别感谢https://segmentfault.com/a/1190000004586636深受此篇文章影响,受益匪浅,非常感谢. 1 基础页面框架引入bootstarp jquery angular相关文件">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-15:50-firststep.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:03-body.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:01-directive.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:14-result1.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:06-templateurl.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:09-temhtml.png">
+<meta property="og:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:14-result2.png">
+<meta property="og:updated_time" content="2017-10-08T08:27:17.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tomasyao的空间站">
-<meta name="twitter:description" content="d9lab worker">
+<meta name="twitter:title" content="angularjs derective之ng-transclude">
+<meta name="twitter:description" content="特别感谢https://segmentfault.com/a/1190000004586636深受此篇文章影响,受益匪浅,非常感谢. 1 基础页面框架引入bootstarp jquery angular相关文件">
+<meta name="twitter:image" content="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-15:50-firststep.png">
   
     <link rel="alternative" href="/atom.xml" title="Tomasyao的空间站" type="application/atom+xml">
   
@@ -138,68 +148,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-angularjs-derective之ng-transclude" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/13/在Ubuntu上解压安装mysql/" class="archive-article-date">
-  	<time datetime="2017-07-13T07:02:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/13/在Ubuntu上解压安装mysql/">在Ubuntu上解压安装mysql</a>
+    <h1 class="article-title" itemprop="name">
+      angularjs derective之ng-transclude
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/08/angularjs-derective之ng-transclude/" class="archive-article-date">
+  	<time datetime="2017-10-08T06:57:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p><a href="https://segmentfault.com/a/1190000004586636" target="_blank" rel="external">https://segmentfault.com/a/1190000004586636</a><br>深受此篇文章影响,受益匪浅,非常感谢.</p>
+<h3 id="1-基础页面框架"><a href="#1-基础页面框架" class="headerlink" title="1 基础页面框架"></a>1 基础页面框架</h3><p>引入bootstarp jquery angular相关文件<br><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-15:50-firststep.png" alt=""><br><a id="more"></a></p>
+<h3 id="2-html-body相关结构"><a href="#2-html-body相关结构" class="headerlink" title="2 html body相关结构"></a>2 html body相关结构</h3><p>必要的指令元素于普通元素<br><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:03-body.png" alt=""></p>
+<h3 id="3-直接template指令"><a href="#3-直接template指令" class="headerlink" title="3 直接template指令"></a>3 直接template指令</h3><p><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:01-directive.png" alt=""><br><strong>结果</strong><br><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:14-result1.png" alt=""></p>
+<h3 id="4-使用templateUrl"><a href="#4-使用templateUrl" class="headerlink" title="4 使用templateUrl"></a>4 使用templateUrl</h3><p><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:06-templateurl.png" alt=""><br>其中text_template.html文件内容为<br><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:09-temhtml.png" alt=""><br><strong>结果</strong><br><img src="http://ouq6u283u.bkt.clouddn.com/hexoblog/img17-10-8-16:14-result2.png" alt=""></p>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h3><p>这篇文章没写好,以后删了重写</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢您的支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ouq6u283u.bkt.clouddn.com/17-10-8-16:34-alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://ouq6u283u.bkt.clouddn.com/17-10-8-16:34-wepay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解压安装</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">derective</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.tomasyao.info/2017/10/08/angularjs-derective之ng-transclude/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/09/14/momentjs日期处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">momentjs日期处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -222,9 +333,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
